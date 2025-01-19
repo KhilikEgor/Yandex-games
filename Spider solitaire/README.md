@@ -1,0 +1,1 @@
+# Spider solitaire (Косынка паук)
