@@ -9,6 +9,9 @@ namespace Solitaire.Presenters
     public class PopupMatchPresenter : OrientationAwarePresenter
     {
         [SerializeField]
+        private Button _buttonClose;
+
+        [SerializeField]
         private Button _buttonRestart;
 
         [SerializeField]
