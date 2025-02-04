@@ -5,6 +5,6 @@ namespace Solitaire.Models
     public class GameState : StateModel<Game.State>
     {
         public GameState()
-            : base(Game.State.Home) { }
+            : base(Game.State.Win) { }
     }
 }

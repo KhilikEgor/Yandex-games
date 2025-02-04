@@ -6,6 +6,7 @@ using Solitaire.Commands;
 using Solitaire.Helpers;
 using Solitaire.Services;
 using UniRx;
+using YG;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -27,7 +28,7 @@ namespace Solitaire.Models
             Dealing,
             Playing,
             Paused,
-            Win
+            Win,
         }
 
         [Inject]
@@ -69,8 +70,11 @@ namespace Solitaire.Models
         [Inject]
         private readonly RefillStockCommand.Factory _refillStockCommandFactory;
 
+        public static Game Instance { get; private set; }
+
         public Game()
         {
+            Instance = this;
             HasStarted = new BoolReactiveProperty(false);
 
             RestartCommand = new ReactiveCommand();
@@ -334,16 +338,19 @@ namespace Solitaire.Models
             } while (cardsInTableaus > 0);
 
             AddPointsAndSaveLeaderboard();
+            YandexGame.FullscreenShow();
         }
 
         private void Restart()
         {
+            YandexGame.FullscreenShow();
             Reset();
             DealAsync().Forget();
         }
 
-        private void NewMatch()
+        public void NewMatch()
         {
+            YandexGame.FullscreenShow();
             Reset();
             ShuffleCards();
             DealAsync().Forget();

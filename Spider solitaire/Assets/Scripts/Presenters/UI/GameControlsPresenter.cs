@@ -3,6 +3,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using YG;
 
 namespace Solitaire.Presenters
 {
@@ -38,7 +39,6 @@ namespace Solitaire.Presenters
         protected override void Start()
         {
             base.Start();
-
             _gamePopup.OptionsCommand.BindTo(_buttonOptions).AddTo(this);
             _gameControls.HomeCommand.BindTo(_buttonHome).AddTo(this);
             _gamePopup.MatchCommand.BindTo(_buttonMatch).AddTo(this);
@@ -49,7 +49,7 @@ namespace Solitaire.Presenters
 
         protected override void OnOrientationChanged(bool isLandscape)
         {
-            _rectOptions.anchoredPosition = new Vector2(isLandscape ? -350 : -275, _rectOptions.anchoredPosition.y);
+            _rectOptions.anchoredPosition = new Vector2(isLandscape ? 0 : 0, _rectOptions.anchoredPosition.y);
             _rectHome.anchoredPosition = new Vector2(isLandscape ? -210 : -165, _rectHome.anchoredPosition.y);
             _rectMatch.anchoredPosition = new Vector2(isLandscape ? -70 : -55, _rectMatch.anchoredPosition.y);
             _rectUndo.anchoredPosition = new Vector2(isLandscape ? 70 : 55, _rectUndo.anchoredPosition.y);

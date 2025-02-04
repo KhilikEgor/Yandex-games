@@ -3,6 +3,7 @@ using Solitaire.Models;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 namespace Solitaire.Presenters
@@ -58,7 +59,6 @@ namespace Solitaire.Presenters
         protected override void Start()
         {
             base.Start();
-
             _game.NewMatchCommand.BindTo(_buttonNewMatch).AddTo(this);
             _game.ContinueCommand.BindTo(_buttonContinue).AddTo(this);
             _gamePopup.OptionsCommand.BindTo(_buttonOptions).AddTo(this);
@@ -94,7 +94,7 @@ namespace Solitaire.Presenters
             {
                 _rectOptions.anchorMin = new Vector2(0.5f, 0f);
                 _rectOptions.anchorMax = new Vector2(0.5f, 0f);
-                _rectOptions.anchoredPosition = new Vector2(-70f, _rectOptions.sizeDelta.y);
+                //_rectOptions.anchoredPosition = new Vector2(-70f, _rectOptions.sizeDelta.y);
 
                 _rectLeaderboard.anchorMin = new Vector2(0.5f, 0f);
                 _rectLeaderboard.anchorMax = new Vector2(0.5f, 0f);

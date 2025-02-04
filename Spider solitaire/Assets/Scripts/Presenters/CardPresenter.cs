@@ -221,7 +221,6 @@ namespace Solitaire.Presenters
         {
             if (_card.IsMoveable)
             {
-                _collider.offset = new Vector2(0f, 2f);
 
                 _dndHandler.BeginDrag(eventData, _card.Pile.SplitAt(_card));
                 _card.IsInteractable.Value = false;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Solitaire.Helpers
 {
@@ -28,7 +29,7 @@ namespace Solitaire.Helpers
             }
             else if (!isInteractable && _isNormal)
             {
-                ChangeAlpha(0.5f);
+                ChangeAlpha(0.3f);
                 _isNormal = false;
             }
         }
